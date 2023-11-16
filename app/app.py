@@ -1,7 +1,6 @@
 # pip install Flask
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import joblib
-
 # In[6]:
 
 label_dict = {0: '__label__thể_thao', 1: '__label__âm_nhạc', 2: '__label__nhịp_sống',3: '__label__công_nghệ', 4: '__label__thời_sự', 
@@ -10,7 +9,7 @@ label_dict = {0: '__label__thể_thao', 1: '__label__âm_nhạc', 2: '__label__n
              15: '__label__ẩm_thực', 16: '__label__xuất_bản', 17: '__label__sức_khỏe'}
 
 # Load model from file
-model = joblib.load('naive_bayes.pkl')
+model = joblib.load('app/naive_bayes.pkl')
 
 # Initialize Flask app
 app = Flask(__name__)

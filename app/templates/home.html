@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Naive Bayes Classifier</title>
 </head>
 <body>
-    <h1 style="text-align: center;  margin-top: 100px;">Naive Bayes Classifier</h1>
-    <form action="/classify" method="post">
-        <textarea style="margin-left: 36.7%; resize: none;" name="text" rows="10" cols="50"></textarea><br><br>
-        <input style="margin-left: 47.5%;" type="submit" value="Classify">
+    <h1>Naive Bayes Classifier</h1>
+    <form action="/classify" method="post" oninput="updateWordCount()">
+        <textarea name="text" id="textInput" rows="10" cols="50" placeholder="Nhập văn bản cần kiểm tra."></textarea><br><br>
+        <input type="submit" value="Classify">
+        <div id="wordCount"></div>
     </form>
+    <script>
+        function updateWordCount() {
+            var textInput = document.getElementById('textInput');
+            var wordCount = document.getElementById('wordCount');
+            var words = textInput.value.match(/\b\w+\b/g); // Sử dụng regex để đếm từ
+            var count = words ? words.length : 0;
+            wordCount.innerHTML = 'Số từ: ' + count;
+        }
+    </script>
 </body>
+
 </html>

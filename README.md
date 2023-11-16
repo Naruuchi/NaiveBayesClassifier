@@ -1,5 +1,5 @@
 # NaiveBayesClassifier
-        This need python2 flask and sklearn package to function.
+        This need python2 flask and scikit-learn package to function.
         
         Some large file is compressed to be able to push cause recommeded size for each file on github is 50 KB
 
